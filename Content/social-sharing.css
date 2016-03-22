@@ -1,0 +1,15 @@
+.btn-googleplus {
+    float:left;
+    background: #e93f2e;
+    border-radius: 4px;
+    color: #fff
+}
+.btn-googleplus:link, .btn-googleplus:visited {
+    color: #fff
+}
+.btn-googleplus:active, .btn-googleplus:hover {
+    background: #ba3225;
+    color: #fff
+}
+
+
