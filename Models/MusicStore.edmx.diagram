@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dfc6a025ab0c478da71dd808c1c496a7" Name="Diagram1">
+        <EntityTypeShape EntityType="MvcMusicStoreModel.Album" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.Artist" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.Cart" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.Genre" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.Order" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.Post" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="MvcMusicStoreModel.FK__Album__ArtistId__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="MvcMusicStoreModel.FK_Album_Genre" ManuallyRouted="false" />
+        <AssociationConnector Association="MvcMusicStoreModel.FK_Cart_Album" ManuallyRouted="false" />
+        <AssociationConnector Association="MvcMusicStoreModel.FK_InvoiceLine_Album" ManuallyRouted="false" />
+        <AssociationConnector Association="MvcMusicStoreModel.FK__Post__GenreId__25518C17" ManuallyRouted="false" />
+        <AssociationConnector Association="MvcMusicStoreModel.FK__InvoiceLi__Invoi__2F10007B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
