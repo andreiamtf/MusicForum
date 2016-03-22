@@ -30,15 +30,15 @@ namespace MyMusic.Controllers
             return View(viewModel);
         }
         
-        // GET: /AddMusicCart/
+       
         public ActionResult AddMusicCart(int id)
         {
-            // Retrieve the album from the database
+            // Retrieve the album from bd
             var addedAlbum = db.Albums.Single(album => album.AlbumId == id);
-            // Add it to the shopping cart  
+            // Add album to the shopping cart  
             var cart = MusicCart.GetMusicCart(this.HttpContext);
             cart.AddMusicCart(addedAlbum);
-            // Go back to the main store page for more shopping
+            // Go back to the main page for more shopping
             return RedirectToAction("Index", "Store");
         }
         //
@@ -52,13 +52,13 @@ namespace MyMusic.Controllers
             string albumName = db.Carts.Single(item => item.RecordId == id).Album.Title;
             // Remove from cart
             int itemCount = cart.RemoveFromCart(id);
-            // Validation
+            // Validation success
             TempData["Success"] = albumName + " " + "has been removed from your shopping cart.";
             return RedirectToAction("Index", "MusicCart");
         }
        
 
-        // GET: /MusicCart/CartReHeader/Partial_view
+    
         [ChildActionOnly]
         public ActionResult CartReHeader()
         {
