@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Delete";
+}
+<div id="maincontainer">
+    <h3>
+        <em>Delete Album</em>:
+    </h3>
+    <hr />
+
+    <p>
+        Are you sure you want to delete the album titled
+        <strong>@Model.Title</strong>?
+    </p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <p>
+            <input class="btn btn-primary btn-sm" type="submit" value="Delete" />
+        </p>
+
+    }
+
+    |<a href="@Url.Action("Index", new {  })" title="Back to List">
+        <i class="glyphicon glyphicon-arrow-left"></i>
+        <span class="sr-only">Back to List</span>
+    </a> |
+
+</div>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<MyMusic.Models.Genre>
+@{
+
+    ViewBag.Title = "Store";
+}
+
+<div id="maincontainer">
+
+    <h4>
+        <img src=~/Content/Images/clave.jpg height="35" width="35" />
+
+        <b>Select your genre:</b>
+
+    </h4>
+
+    <div class="col-lg-3 col-md-3 col-sm-4">
+        <div class="list-group table-of-contents">
+            @foreach (var genre in Model)
+            {
+                @Html.ActionLink(genre.Name, "BrowseAlbuns", new { id = genre.GenreId }, new { @class = "list-group-item" })
+            }
+
+        </div>
+    </div>
+
+    <div id="ImgHome">
+        <img src=~/Content/Images/music1.jpg height=" 420" width="840" />
+    </div>
+
+    <div id="home">
+        <blockquote>
+            <p>Music gives a soul to the universe, wings to the mind, flight to the imagination and life to everything.</p>
+            <small><cite title="Source Title">Plato</cite></small>
+        </blockquote>
+    </div>
+
+</div>

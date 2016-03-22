@@ -1,0 +1,17 @@
+﻿@model int
+@{
+    ViewBag.Title = "Checkout Complete";
+} 
+
+<div id="maincontainer">
+
+    <h3>
+        <em>Checkout Complete</em>
+    </h3>
+    <hr />
+    <p>Thanks for your order! Your order number is: @Model</p>
+
+    <div id="Add">
+        <button class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("Index", "Store")';return false;">Close</button>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<MyMusic.Models.Post>
+
+
+@using MyMusic.Helpers;
+@using MyMusic.Models;
+@using System.Collections.Generic;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<body>
+    <div id="maincontainer_blog">
+
+
+        <h3><em>Forum</em></h3>
+        <hr />
+
+
+        <p>
+            This section provides a forum for people of all the music world to come together and discuss freely in open forum their <strong>
+                love
+            </strong>, <strong>passion</strong> and <strong>
+                feelings
+            </strong> for mu<img src=~/Content/Images/pauta.jpg height="55" width="55" />sic.
+            I encourage peoples of all ages, ethnic backgrounds, geographical boundaries, lovers of all music genre from Rap to Opera, and all experience levels from casual listener to accomplished professional to participate.
+        </p>
+
+
+
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="~/Content/Images/above-and-beyond.jpg" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="~/Content/Images/kiss.jpg" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="~/Content/Images/sally.jpg" alt="">
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="#">
+                <img class="img-responsive" src="~/Content/Images/LedZeppelin.jpg" alt="">
+            </a>
+        </div>
+
+        <img src=~/Content/Images/clave.jpg height="35" width="35" />
+        <p><strong>Select your genre:</strong></p>
+
+        <div class="form-horizontal">
+            @using (Html.BeginForm("PostGenre", "Post", FormMethod.Post))
+            {
+
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.AntiForgeryToken()
+
+                <div id="Search">
+                    @Html.DropDownList("GenreId", null, htmlAttributes: new { @class = "form-control" })
+                </div>
+                <input type="submit" value="Select" class="btn btn-default" />
+
+
+            }
+            <br />
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h6><em>@Model.FirstOrDefault().Title | @Model.FirstOrDefault().PostDate</em></h6>
+
+            </div>
+            <div class="panel-body">
+                <p>@Model.FirstOrDefault().Description</p>
+
+            </div>
+        </div>
+        <div class="fb-comments" data-href="http://localhost:52200/@Model.FirstOrDefault().Title" data-width="470" data-numposts="10" data-order-by="social"></div>
+
+    </div>
+
+    <div id="nav_and" class="jumbotron">
+        <h4><em>Latest Posts</em></h4>
+
+
+
+        @foreach (Post post in Model)
+        {
+            <li>@Html.ActionLink(post.Title, "LastPost", new { GenreId = post.GenreId })</li>
+
+        }
+
+
+    </div>
+
+</body>
+<div id="fb-root"></div>
+<script>
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=key";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

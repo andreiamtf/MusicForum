@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MyMusic.Models.Album>
+
+    @{
+    ViewBag.Title = "BrowseAlbuns   ";
+    }
+
+    <div id="maincontainer">
+        @*retrieve the first element just to print the name of the genre*@
+        <h3><em>@Model.First().Genre.Name</em> Albums</h3>
+        <h5><em>There is a total of @Model.Count() albuns</em></h5>
+        <br />
+    </div>
+
+    @using (Html.BeginForm("MusicSearch", "Store", new { genre = @Model.First().Genre.Name }))
+    {
+
+        <div id="Search">
+            @Html.TextBox("musicSearchBox", "", new { @class = "form-control", placeholder = "Search artist or album..." })
+        </div>
+
+    <input class="btn btn-default" type="submit" value="Search" />
+
+    }
+
+        <br />
+        <table class="table table-striped table-hover">
+
+
+            <tr>
+                <th></th>
+
+                <th>
+                    Album Title
+                </th>
+
+                <th>
+                    Artist
+                </th>
+
+                <th>
+                    Price
+                </th>
+
+                <th>
+                    Order
+                </th>
+            </tr>
+
+            @foreach (var album in Model)
+        {
+
+                <tr>
+                    <td><img alt="@album.AlbumArtUrl" src="@album.AlbumArtUrl" /></td>
+                    <td vertical-align="middle">@album.Title</td>
+                    <td>@album.Artist.Name</td>
+                    <td> &pound @album.Price </td>
+                    <td>
+                        <a href="@Url.Action("AddMusicCart", "MusicCart" , new { id=@album.AlbumId })" title="Order">
+                            <i class="glyphicon glyphicon-shopping-cart"></i>
+
+                        </a>
+
+                    </td>
+
+
+
+                </tr>
+
+        }
+        </table>
+
+
+
+
+

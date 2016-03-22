@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MyMusic.Models.Post>
+
+@using MyMusic.Helpers;
+@using MyMusic.Models;
+@using System.Collections.Generic;
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<body>
+    <div id="maincontainer">
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h6><em>@Model.FirstOrDefault().Title | @Model.FirstOrDefault().PostDate</em></h6>
+
+            </div>
+            <div class="panel-body">
+                <p>@Model.FirstOrDefault().Description</p>
+
+            </div>
+        </div>
+
+
+        <div id="maincontainer">
+            <div class="fb-comments" data-href="http://localhost:52200/@Model.FirstOrDefault().Title" data-width="470" data-numposts="10" data-order-by="social"></div>
+
+
+            <div id="fb-root"></div>
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v2.5&appId=key";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+
+        </div>
+
+    </div>
+</body>
